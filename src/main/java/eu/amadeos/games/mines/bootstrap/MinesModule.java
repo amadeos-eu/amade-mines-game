@@ -11,7 +11,7 @@ import eu.amadeos.commons.i18n.Messages;
 import eu.amadeos.gameengine.score.HighScores;
 import eu.amadeos.gameengine.score.PlayerName;
 import eu.amadeos.gameengine.score.Ranking;
-import eu.amadeos.games.mines.domain.GameClock;
+import eu.amadeos.gameengine.time.GameClock;
 import eu.amadeos.games.mines.repository.MinesSettings;
 import eu.amadeos.games.mines.ui.main.MinesPresenter;
 import eu.amadeos.games.mines.ui.main.MinesView;

@@ -40,7 +40,7 @@ With `../amade-game-engine` (and `../amade-commons`) checked out next to this re
 
 ## Structure
 
-- `domain`: the rules without user interface. `Board` (field, safe first click, flood fill without recursion, chords, marks), `Difficulty`, `GameClock`.
+- `domain`: the rules without user interface. `Board` (field, safe first click, flood fill without recursion, chords, marks), `Difficulty`. The clock (`GameClock`) comes from the engine.
 - `repository`: `MinesSettings`.
 - `ui.main`: Model-View-Presenter like the amade applications. `MinesPresenter` runs the game without Swing (moves, clock, face, best times), `MinesView` is what it needs from the window, `MinesWindow` implements it (menu, counters, face button). Tests drive the presenter through a `FakeView`, without a display.
 - `ui.view`: the drawn components: `BoardView` (field and mouse gestures), `Counter`, `FaceIcon`, `Face`.

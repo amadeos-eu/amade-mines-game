@@ -178,23 +178,4 @@ class BoardTest {
         assertThrows(IllegalArgumentException.class, () -> new Board(3, 3, 9, new SplittableRandom()));
         assertThrows(IllegalArgumentException.class, () -> new Board(0, 3, 1, new SplittableRandom()));
     }
-
-    @Test
-    void theClockCountsStartedSeconds() {
-        long[] now = {5_000_000_000L};
-        GameClock clock = new GameClock(() -> now[0]);
-        assertEquals(0, clock.seconds());
-        clock.start();
-        assertEquals(1, clock.seconds());
-        now[0] += 2_500_000_000L;
-        assertEquals(3, clock.seconds());
-        clock.stop();
-        now[0] += 10_000_000_000L;
-        assertEquals(3, clock.seconds());
-        assertFalse(clock.running());
-        clock.reset();
-        clock.start();
-        now[0] += 5_000_000_000_000L;
-        assertEquals(GameClock.MAX_SECONDS, clock.seconds());
-    }
 }
