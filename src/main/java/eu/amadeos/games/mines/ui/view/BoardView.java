@@ -1,4 +1,4 @@
-package eu.amadeos.games.mines.ui;
+package eu.amadeos.games.mines.ui.view;
 
 import eu.amadeos.commons.swing.AmadeUI;
 import eu.amadeos.commons.theme.DesktopTheme;
@@ -32,9 +32,9 @@ import java.util.Set;
  * is held, the cells it would open are shown pressed. Colours come from the desktop theme at paint time,
  * so the field follows the Style Manager.
  */
-final class BoardView extends JComponent {
+public final class BoardView extends JComponent {
     /** What the window does with the gestures. */
-    interface Listener {
+    public interface Listener {
         void open(int column, int row);
 
         void chord(int column, int row);
@@ -64,7 +64,8 @@ final class BoardView extends JComponent {
     /** After a chord, the other button's release must not open a cell. */
     private boolean swallowRelease;
 
-    BoardView(Board board, int cellSize, Listener listener) {
+    /** @param board the field to show, {@code null} until the first game; see {@link #setBoard(Board)} */
+    public BoardView(Board board, int cellSize, Listener listener) {
         this.board = board;
         this.cellSize = cellSize;
         this.listener = listener;
@@ -93,7 +94,7 @@ final class BoardView extends JComponent {
         addMouseMotionListener(mouse);
     }
 
-    void setBoard(Board board) {
+    public void setBoard(Board board) {
         this.board = board;
         pressed = null;
         chording = false;
@@ -102,17 +103,20 @@ final class BoardView extends JComponent {
         repaint();
     }
 
-    int cellSize() {
+    public int cellSize() {
         return cellSize;
     }
 
+    // --8<-- [start:cell-at]
     /** The cell under a point; a point outside the field gives a cell outside the board. */
-    Point cellAt(Point p) {
+    public Point cellAt(Point p) {
         return new Point(Math.floorDiv(p.x, cellSize), Math.floorDiv(p.y, cellSize));
     }
+    // --8<-- [end:cell-at]
 
+    // --8<-- [start:mouse]
     private void pressedAt(MouseEvent e) {
-        if (board.finished()) return;
+        if (board == null || board.finished()) return;
         Point cell = cellAt(e.getPoint());
         int down = e.getModifiersEx();
         boolean left = (down & InputEvent.BUTTON1_DOWN_MASK) != 0;
@@ -131,6 +135,7 @@ final class BoardView extends JComponent {
     }
 
     private void releasedAt(MouseEvent e) {
+        if (board == null) return;
         int stillDown = e.getModifiersEx() & (InputEvent.BUTTON1_DOWN_MASK | InputEvent.BUTTON2_DOWN_MASK
                 | InputEvent.BUTTON3_DOWN_MASK);
         Point cell = cellAt(e.getPoint());
@@ -148,9 +153,11 @@ final class BoardView extends JComponent {
         if (stillDown == 0) listener.pressing(false);
         repaint();
     }
+    // --8<-- [end:mouse]
 
     @Override
     public Dimension getPreferredSize() {
+        if (board == null) return new Dimension(cellSize, cellSize);
         return new Dimension(board.columns() * cellSize, board.rows() * cellSize);
     }
 
@@ -160,11 +167,16 @@ final class BoardView extends JComponent {
     }
 
     @Override
+    // --8<-- [start:paint]
     protected void paintComponent(Graphics g) {
         DesktopTheme theme = AmadeUI.theme();
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setColor(theme.base());
         g2.fillRect(0, 0, getWidth(), getHeight());
+        if (board == null) {
+            g2.dispose();
+            return;
+        }
         Set<Integer> down = pressedCells();
         Font numberFont = getFont().deriveFont(Font.BOLD, cellSize * 0.62f);
         for (int r = 0; r < board.rows(); r++) {
@@ -174,6 +186,7 @@ final class BoardView extends JComponent {
         }
         g2.dispose();
     }
+    // --8<-- [end:paint]
 
     /** The closed cells drawn pressed while a button is held. */
     private Set<Integer> pressedCells() {
@@ -243,6 +256,7 @@ final class BoardView extends JComponent {
                 y + (cellSize + fm.getAscent() - fm.getDescent()) / 2f + 0.5f);
     }
 
+    // --8<-- [start:paint-mine]
     private void paintMine(Graphics2D g, int x, int y) {
         float cx = x + cellSize / 2f + 0.5f;
         float cy = y + cellSize / 2f + 0.5f;
@@ -260,6 +274,7 @@ final class BoardView extends JComponent {
         float glare = radius * 0.55f;
         g.fill(new Ellipse2D.Float(cx - radius * 0.6f, cy - radius * 0.6f, glare, glare));
     }
+    // --8<-- [end:paint-mine]
 
     private void paintFlag(Graphics2D g, int x, int y) {
         float s = cellSize;

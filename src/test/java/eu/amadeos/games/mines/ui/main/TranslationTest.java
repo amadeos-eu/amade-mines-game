@@ -1,4 +1,4 @@
-package eu.amadeos.games.mines.ui;
+package eu.amadeos.games.mines.ui.main;
 
 import eu.amadeos.commons.i18n.Language;
 import eu.amadeos.commons.i18n.Messages;
@@ -40,7 +40,7 @@ class TranslationTest {
             Messages game = Messages.load(MinesModule.class, MinesModule.MESSAGES, language.locale());
             List<String> texts = new ArrayList<>(List.of(engine.get("menu.game.new"), engine.get("menu.game.scores"),
                     engine.get("menu.game.exit"), game.get("menu.game.marks")));
-            for (Difficulty d : Difficulty.values()) texts.add(game.get(MinesWindow.difficultyKey(d)));
+            for (Difficulty d : Difficulty.values()) texts.add(game.get(MinesPresenter.difficultyKey(d)));
             Map<Character, String> seen = new HashMap<>();
             for (String text : texts) {
                 Mnemonics.Text t = Mnemonics.parse(text);

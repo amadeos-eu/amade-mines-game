@@ -1,4 +1,4 @@
-package eu.amadeos.games.mines.ui;
+package eu.amadeos.games.mines.ui.view;
 
 import javax.swing.Icon;
 import java.awt.BasicStroke;
@@ -13,30 +13,21 @@ import java.awt.geom.Line2D;
 import java.awt.geom.RoundRectangle2D;
 
 /** The face on the new-game button, drawn rather than taken from an emoji font the system may not have. */
-final class FaceIcon implements Icon {
-    enum Face {
-        /** Playing. */
-        SMILE,
-        /** A mouse button is held on the field. */
-        SURPRISED,
-        LOST,
-        WON
-    }
-
+public final class FaceIcon implements Icon {
     static final Color YELLOW = new Color(0xFF, 0xE0, 0x00);
 
     private final int size;
     private Face face = Face.SMILE;
 
-    FaceIcon(int size) {
+    public FaceIcon(int size) {
         this.size = size;
     }
 
-    Face face() {
+    public Face face() {
         return face;
     }
 
-    void setFace(Face face) {
+    public void setFace(Face face) {
         this.face = face;
     }
 

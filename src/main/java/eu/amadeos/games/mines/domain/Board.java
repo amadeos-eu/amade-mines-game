@@ -108,6 +108,7 @@ public final class Board {
         return open[index(column, row)];
     }
 
+    // --8<-- [start:look]
     public Look look(int column, int row) {
         int i = index(column, row);
         if (i == exploded) return Look.EXPLODED;
@@ -122,12 +123,14 @@ public final class Board {
             case NONE -> Look.HIDDEN;
         };
     }
+    // --8<-- [end:look]
 
     /**
      * Opens a cell; an empty cell opens its neighbours as well. Flagged cells stay closed.
      *
      * @return true if the field changed
      */
+    // --8<-- [start:open]
     public boolean open(int column, int row) {
         if (finished() || !contains(column, row)) return false;
         int i = index(column, row);
@@ -145,6 +148,7 @@ public final class Board {
         if (opened == columns * rows - mines) win();
         return true;
     }
+    // --8<-- [end:open]
 
     /**
      * Opens the closed neighbours of an opened number once as many flags surround it as the number says
@@ -197,6 +201,7 @@ public final class Board {
         return Arrays.stream(neighbours(i)).filter(n -> !open[n] && marks[n] != Mark.FLAG).toArray();
     }
 
+    // --8<-- [start:lay-mines]
     private void layMines(int first) {
         int cells = columns * rows;
         boolean[] blocked = new boolean[cells];
@@ -217,6 +222,7 @@ public final class Board {
         }
         countNeighbours();
     }
+    // --8<-- [end:lay-mines]
 
     private void countNeighbours() {
         for (int i = 0; i < mine.length; i++) {
@@ -226,6 +232,7 @@ public final class Board {
         }
     }
 
+    // --8<-- [start:flood]
     /** Opens the cell and, from every empty cell reached, its neighbours; without recursion. */
     private void flood(int start) {
         Deque<Integer> pending = new ArrayDeque<>();
@@ -239,6 +246,7 @@ public final class Board {
             if (counts[i] == 0) for (int n : neighbours(i)) if (!open[n]) pending.push(n);
         }
     }
+    // --8<-- [end:flood]
 
     /** Flags every mine, as the counter then reads 0. */
     private void win() {
@@ -247,6 +255,7 @@ public final class Board {
         flags = mines;
     }
 
+    // --8<-- [start:neighbours]
     private int[] neighbours(int i) {
         int c = i % columns;
         int r = i / columns;
@@ -259,6 +268,7 @@ public final class Board {
         }
         return Arrays.copyOf(result, size);
     }
+    // --8<-- [end:neighbours]
 
     private int index(int column, int row) {
         if (!contains(column, row)) throw new IndexOutOfBoundsException(column + "," + row);

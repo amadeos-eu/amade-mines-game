@@ -13,7 +13,9 @@ import eu.amadeos.gameengine.score.PlayerName;
 import eu.amadeos.gameengine.score.Ranking;
 import eu.amadeos.games.mines.domain.GameClock;
 import eu.amadeos.games.mines.repository.MinesSettings;
-import eu.amadeos.games.mines.ui.MinesWindow;
+import eu.amadeos.games.mines.ui.main.MinesPresenter;
+import eu.amadeos.games.mines.ui.main.MinesView;
+import eu.amadeos.games.mines.ui.main.MinesWindow;
 
 import java.util.Locale;
 import java.util.random.RandomGenerator;
@@ -30,6 +32,8 @@ public final class MinesModule extends AbstractModule {
     protected void configure() {
         bind(MinesSettings.class).in(Scopes.SINGLETON);
         bind(MinesWindow.class).in(Scopes.SINGLETON);
+        bind(MinesView.class).to(MinesWindow.class);
+        bind(MinesPresenter.class).in(Scopes.SINGLETON);
         bind(GameClock.class).toInstance(new GameClock());
     }
 

@@ -1,4 +1,4 @@
-package eu.amadeos.games.mines.ui;
+package eu.amadeos.games.mines.ui.view;
 
 import eu.amadeos.commons.swing.AmadeUI;
 
@@ -15,7 +15,7 @@ import java.awt.geom.Line2D;
  * Three red seven-segment digits on black, as on the original's mine counter and clock. The segments are
  * drawn, not taken from a font, so they look the same everywhere.
  */
-final class Counter extends JComponent {
+public final class Counter extends JComponent {
     static final Color LIT = new Color(0xFF, 0x20, 0x10);
     static final Color UNLIT = new Color(0x34, 0x06, 0x03);
 
@@ -24,20 +24,20 @@ final class Counter extends JComponent {
     private static final int MINUS = 0x40;
     private static final int BEVEL = 2;
     /** Width to height of the whole counter, so that each digit is a little more than half as wide as high. */
-    static final float ASPECT = 1.9f;
+    public static final float ASPECT = 1.9f;
 
     private int value;
 
-    Counter(String name) {
+    public Counter(String name) {
         setName(name);
     }
 
-    int value() {
+    public int value() {
         return value;
     }
 
     /** Shows -99 to 999; values beyond are cut to these. */
-    void setValue(int value) {
+    public void setValue(int value) {
         int shown = Math.clamp(value, -99, 999);
         if (shown != this.value) {
             this.value = shown;
