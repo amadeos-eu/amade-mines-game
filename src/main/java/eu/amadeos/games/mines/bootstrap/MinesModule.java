@@ -37,12 +37,14 @@ public final class MinesModule extends AbstractModule {
         bind(GameClock.class).toInstance(new GameClock());
     }
 
+    // --8<-- [start:high-scores]
     /** Best times per field size in {@code ~/.local/share/amadeos/games/mines}. */
     @Provides
     @Singleton
     HighScores highScores(XdgDirectories xdg, AppInfo app) {
         return HighScores.of(xdg, app.configName(), Ranking.LOWER_WINS);
     }
+    // --8<-- [end:high-scores]
 
     @Provides
     @Singleton

@@ -24,6 +24,7 @@ class BoardTest {
         return mines;
     }
 
+    // --8<-- [start:first-click]
     @RepeatedTest(20)
     void theFirstClickIsSafeAndOpensAnArea() {
         RandomGenerator random = new SplittableRandom();
@@ -36,6 +37,7 @@ class BoardTest {
         assertEquals(0, board.count(c, r), "no mine around the first cell");
         assertTrue(board.isOpen(c, r));
     }
+    // --8<-- [end:first-click]
 
     @Test
     void laysExactlyTheNumberOfMines() {
@@ -63,6 +65,7 @@ class BoardTest {
         assertEquals(Board.State.WON, board.state());
     }
 
+    // --8<-- [start:empty-area]
     @Test
     void anEmptyCellOpensItsArea() {
         Board board = Board.of(
@@ -81,6 +84,7 @@ class BoardTest {
         assertEquals(Look.FLAG, board.look(3, 2), "the mines get their flags");
         assertEquals(0, board.minesLeft());
     }
+    // --8<-- [end:empty-area]
 
     @Test
     void steppingOnAMineLosesAndShowsTheField() {
@@ -107,6 +111,7 @@ class BoardTest {
         assertEquals(Board.State.PLAYING, board.state());
     }
 
+    // --8<-- [start:marks]
     @Test
     void marksCycleAndCountFlags() {
         Board board = Board.of("*..", "...");
@@ -122,6 +127,7 @@ class BoardTest {
         board.cycleMark(1, 0, true);
         assertEquals(Look.HIDDEN, board.look(1, 0));
     }
+    // --8<-- [end:marks]
 
     @Test
     void withoutQuestionMarksAFlagGoesStraightBack() {

@@ -25,14 +25,19 @@ public final class Board {
     private final int rows;
     private final int mines;
     private final RandomGenerator random;
+    // --8<-- [start:fields]
+    /** One entry per cell, at index {@code row * columns + column}. */
     private final boolean[] mine;
     private final boolean[] open;
     private final Mark[] marks;
+    /** Mines among the neighbours, 0 to 8. */
     private final int[] counts;
     private State state = State.READY;
     private int opened;
     private int flags;
+    /** The mine that was opened, -1 while none was. */
     private int exploded = -1;
+    // --8<-- [end:fields]
 
     public Board(int columns, int rows, int mines, RandomGenerator random) {
         if (columns < 1 || rows < 1) throw new IllegalArgumentException("Empty field: " + columns + "×" + rows);
