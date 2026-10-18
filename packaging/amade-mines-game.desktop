@@ -1,0 +1,24 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=amadeOS Mines
+Name[de]=amadeOS Minen
+Name[fr]=amadeOS Démineur
+Name[es]=amadeOS Buscaminas
+Name[it]=amadeOS Campo minato
+GenericName=Mine-Sweeping Game
+GenericName[de]=Minensuchspiel
+GenericName[fr]=Jeu de déminage
+GenericName[es]=Juego de buscaminas
+GenericName[it]=Gioco del campo minato
+Comment=Find all mines on the field without stepping on one
+Comment[de]=Alle Minen im Feld finden, ohne auf eine zu treten
+Comment[fr]=Trouver toutes les mines du champ sans marcher sur aucune
+Comment[es]=Encontrar todas las minas del campo sin pisar ninguna
+Comment[it]=Trovare tutte le mine del campo senza calpestarne nessuna
+Icon=amade-mines-game
+Exec=/usr/bin/amade-mines-game
+Terminal=false
+Categories=Game;LogicGame;
+Keywords=mines;minesweeper;puzzle;logic;game;
+StartupNotify=true

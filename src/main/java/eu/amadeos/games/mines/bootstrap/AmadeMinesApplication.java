@@ -1,0 +1,35 @@
+package eu.amadeos.games.mines.bootstrap;
+
+import eu.amadeos.commons.app.AmadeApplication;
+import eu.amadeos.commons.app.AppInfo;
+import eu.amadeos.games.mines.ui.MinesWindow;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public final class AmadeMinesApplication {
+    public static final AppInfo APP = new AppInfo("amade-mines-game", "Mines", "mines");
+
+    private AmadeMinesApplication() {
+    }
+
+    /** The version from the jar's manifest; "dev" when run from the IDE. */
+    public static String version() {
+        String version = AmadeMinesApplication.class.getPackage().getImplementationVersion();
+        return version == null ? "dev" : version;
+    }
+
+    public static void main(String[] args) {
+        AmadeApplication.launch(APP, injector -> {
+            MinesWindow window = injector.getInstance(MinesWindow.class);
+            window.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            window.setLocationByPlatform(true);
+            window.setVisible(true);
+        }, new MinesModule());
+    }
+}
