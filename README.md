@@ -47,8 +47,6 @@ With `../amade-game-engine` (and `../amade-commons`) checked out next to this re
 
 Comments of the form `// --8<-- [start:name]` mark the excerpts the [Game Developer's Handbook](https://github.com/datazuul/amade-game-engine/tree/main/docs/handbook) quotes.
 
-Ported from EuroMines in [EuroWorks](https://github.com/datazuul/euroworks).
-
 ## Licence
 
 [EUPL-1.2](LICENSE)
