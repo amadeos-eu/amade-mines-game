@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AppStream metadata of amade-mines-game, installed as /usr/share/metainfo/eu.amadeos.games.mines.metainfo.xml.
+     amadeOS Software shows it for the installed package; a repository's appstream-generator reads it too. -->
+<component type="desktop-application">
+  <id>eu.amadeos.games.mines</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>EUPL-1.2</project_license>
+
+  <name>amadeOS Mines</name>
+
+  <summary>Find all mines on the field without stepping on one</summary>
+  <summary xml:lang="de">Alle Minen auf dem Feld finden, ohne auf eine zu treten</summary>
+  <summary xml:lang="fr">Trouver toutes les mines du champ sans marcher sur aucune</summary>
+  <summary xml:lang="es">Encontrar todas las minas del campo sin pisar ninguna</summary>
+  <summary xml:lang="it">Trovare tutte le mine del campo senza calpestarne nessuna</summary>
+
+  <description>
+    <p>The mine-sweeping game of the amadeOS desktop. A number tells how many mines touch a cell; flag the mines and open everything else as fast as you can.</p>
+    <p xml:lang="de">Das Minensuchspiel des amadeOS-Desktops. Eine Zahl sagt, wie viele Minen ein Feld berühren; markieren Sie die Minen und decken Sie alles andere so schnell wie möglich auf.</p>
+    <p xml:lang="fr">Le jeu de déminage du bureau amadeOS. Un nombre indique combien de mines touchent une case ; marquez les mines et découvrez tout le reste le plus vite possible.</p>
+    <p xml:lang="es">El juego de buscar minas del escritorio amadeOS. Un número indica cuántas minas tocan una casilla; marque las minas y descubra todo lo demás lo más rápido posible.</p>
+    <p xml:lang="it">Il gioco del campo minato del desktop amadeOS. Un numero indica quante mine toccano una casella; segna le mine e scopri tutto il resto il più in fretta possibile.</p>
+    <ul>
+      <li>Beginner, intermediate and expert fields</li>
+      <li xml:lang="de">Felder für Anfänger, Fortgeschrittene und Profis</li>
+      <li xml:lang="fr">Champs débutant, intermédiaire et expert</li>
+      <li xml:lang="es">Campos de principiante, intermedio y experto</li>
+      <li xml:lang="it">Campi principiante, intermedio ed esperto</li>
+      <li>Flags, question marks and opening around a number</li>
+      <li xml:lang="de">Flaggen, Fragezeichen und Aufdecken rund um eine Zahl</li>
+      <li xml:lang="fr">Drapeaux, points d'interrogation et ouverture autour d'un nombre</li>
+      <li xml:lang="es">Banderas, signos de interrogación y apertura alrededor de un número</li>
+      <li xml:lang="it">Bandierine, punti interrogativi e apertura intorno a un numero</li>
+      <li>Ten best times for each size</li>
+      <li xml:lang="de">Zehn Bestzeiten für jede Größe</li>
+      <li xml:lang="fr">Dix meilleurs temps pour chaque taille</li>
+      <li xml:lang="es">Diez mejores tiempos para cada tamaño</li>
+      <li xml:lang="it">Dieci tempi migliori per ogni dimensione</li>
+      <li>Built on amade-game-engine; plays on other operating systems as well</li>
+      <li xml:lang="de">Gebaut auf amade-game-engine; läuft auch auf anderen Betriebssystemen</li>
+      <li xml:lang="fr">Construit sur amade-game-engine ; fonctionne aussi sur d'autres systèmes d'exploitation</li>
+      <li xml:lang="es">Hecho con amade-game-engine; funciona también en otros sistemas operativos</li>
+      <li xml:lang="it">Costruito su amade-game-engine; funziona anche su altri sistemi operativi</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">amade-mines-game.desktop</launchable>
+  <icon type="stock">amade-mines-game</icon>
+  <categories>
+    <category>Game</category>
+    <category>LogicGame</category>
+  </categories>
+
+  <url type="homepage">https://github.com/datazuul/amade-mines-game</url>
+  <url type="bugtracker">https://github.com/datazuul/amade-mines-game/issues</url>
+  <developer id="eu.amadeos">
+    <name>amadeOS Project</name>
+  </developer>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>A game in progress on the intermediate field</caption>
+      <caption xml:lang="de">Ein laufendes Spiel auf dem mittleren Feld</caption>
+      <caption xml:lang="fr">Une partie en cours sur le champ intermédiaire</caption>
+      <caption xml:lang="es">Una partida en curso en el campo intermedio</caption>
+      <caption xml:lang="it">Una partita in corso sul campo intermedio</caption>
+      <image>https://raw.githubusercontent.com/datazuul/amade-mines-game/main/docs/screenshots/amade-mines-game.png</image>
+    </screenshot>
+  </screenshots>
+
+  <provides>
+    <binary>amade-mines-game</binary>
+  </provides>
+  <content_rating type="oars-1.1"/>
+</component>
