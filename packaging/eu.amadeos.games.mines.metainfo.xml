@@ -51,8 +51,8 @@
     <category>LogicGame</category>
   </categories>
 
-  <url type="homepage">https://github.com/datazuul/amade-mines-game</url>
-  <url type="bugtracker">https://github.com/datazuul/amade-mines-game/issues</url>
+  <url type="homepage">https://github.com/amadeos-eu/amade-mines-game</url>
+  <url type="bugtracker">https://github.com/amadeos-eu/amade-mines-game/issues</url>
   <developer id="eu.amadeos">
     <name>amadeOS Project</name>
   </developer>
@@ -64,7 +64,7 @@
       <caption xml:lang="fr">Une partie en cours sur le champ intermédiaire</caption>
       <caption xml:lang="es">Una partida en curso en el campo intermedio</caption>
       <caption xml:lang="it">Una partita in corso sul campo intermedio</caption>
-      <image>https://raw.githubusercontent.com/datazuul/amade-mines-game/main/docs/screenshots/amade-mines-game.png</image>
+      <image>https://raw.githubusercontent.com/amadeos-eu/amade-mines-game/main/docs/screenshots/amade-mines-game.png</image>
     </screenshot>
   </screenshots>
 
