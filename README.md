@@ -1,6 +1,6 @@
 # amade-mines-game
 
-**amade-mines-game** is the mine-sweeping game of the [amadeOS](https://github.com/datazuul/amadeos) desktop: find all mines on the field without stepping on one. Built on [amade-game-engine](https://github.com/datazuul/amade-game-engine); runs on other operating systems as well.
+**amade-mines-game** is the mine-sweeping game of the [amadeOS](https://github.com/amadeos-eu/amadeos) desktop: find all mines on the field without stepping on one. Built on [amade-game-engine](https://github.com/amadeos-eu/amade-game-engine); runs on other operating systems as well.
 
 ![License](https://img.shields.io/badge/license-EUPL--1.2-blue)
 ![Java](https://img.shields.io/badge/Java-25-orange)
@@ -45,7 +45,7 @@ With `../amade-game-engine` (and `../amade-commons`) checked out next to this re
 - `ui.main`: Model-View-Presenter like the amade applications. `MinesPresenter` runs the game without Swing (moves, clock, face, best times), `MinesView` is what it needs from the window, `MinesWindow` implements it (menu, counters, face button). Tests drive the presenter through a `FakeView`, without a display.
 - `ui.view`: the drawn components: `BoardView` (field and mouse gestures), `Counter`, `FaceIcon`, `Face`.
 
-Comments of the form `// --8<-- [start:name]` mark the excerpts the [Game Developer's Handbook](https://github.com/datazuul/amade-game-engine/tree/main/docs/handbook) quotes.
+Comments of the form `// --8<-- [start:name]` mark the excerpts the [Game Developer's Handbook](https://github.com/amadeos-eu/amade-game-engine/tree/main/docs/handbook) quotes.
 
 ## Licence
 
