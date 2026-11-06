@@ -5,6 +5,8 @@
 ![License](https://img.shields.io/badge/license-EUPL--1.2-blue)
 ![Java](https://img.shields.io/badge/Java-25-orange)
 
+![Mines](docs/screenshots/amade-mines-game.png)
+
 ## Playing
 
 - **Left click** opens a cell. A number tells how many mines touch it; an empty cell opens its neighbours.
